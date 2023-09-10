@@ -1,0 +1,1 @@
+window.TOTAL_PRICE = "13752.06"

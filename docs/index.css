@@ -1,0 +1,12 @@
+.cloud {
+  width: 100%;
+  height: 800px;
+}
+
+.cloud-sm {
+  height: 400px !important;
+}
+
+.jumbotron {
+  background-color: #fff;
+}
