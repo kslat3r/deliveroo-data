@@ -10,3 +10,13 @@
 .jumbotron {
   background-color: #fff;
 }
+
+h3#total-price {
+  display: inline;
+  float: left;
+}
+
+span.since {
+  margin-left: 8px;
+  vertical-align: -8px;
+}

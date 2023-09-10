@@ -34,7 +34,7 @@ Object.defineProperty(String.prototype, 'capitalize', {
   }
 
   orders = filterOrders(orders);
-  
+
   const restaurantTokens = getRestaurantTokens(orders);
   const itemTokens = getItemTokens(orders);
   const totalPrice = getTotalPrice(orders);
