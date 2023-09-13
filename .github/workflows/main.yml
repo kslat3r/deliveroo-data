@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - run: node index.js
+      - run: BEARER_TOKEN=${{ secrets.BEARER_TOKEN }} node index.js
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update data from automatic job ID ${{ github.job_id }}
