@@ -19,4 +19,6 @@ jobs:
       - run: BEARER_TOKEN=${{ secrets.BEARER_TOKEN }} node index.js
       - run: |
           git checkout -b docs
+          git add --all
+          git commit -m "Update data from automatic job ID ${{ github.job_id }}"
           git push origin docs --force
