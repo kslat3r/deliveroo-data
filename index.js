@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+console.log(process.env.BEARER_TOKEN);
+
 const getOrders = require('./lib/get-orders');
 const filterOrders = require('./lib/filter-orders');
 const getRestaurantTokens = require('./lib/get-restaurant-tokens');
