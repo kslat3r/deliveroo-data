@@ -18,6 +18,7 @@ jobs:
       - run: npm ci
       - run: BEARER_TOKEN=${{ secrets.BEARER_TOKEN }} node index.js
       - run: |
+          git fetch --all
           git checkout docs
           git merge master
           git push origin docs
