@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 18
       - run: npm ci
-      - run: npm start
+      - run: node index.js
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Update data from automatic job ID ${{ github.job_id }}
