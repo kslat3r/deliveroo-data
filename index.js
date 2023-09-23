@@ -5,6 +5,7 @@ const filterOrders = require('./lib/filter-orders');
 const getRestaurantTokens = require('./lib/get-restaurant-tokens');
 const getItemTokens = require('./lib/get-item-tokens');
 const getTotalPrice = require('./lib/get-total-price');
+const sort = require('./lib/sort');
 const writeFile = require('./lib/write-file');
 
 Object.defineProperty(String.prototype, 'capitalize', {
@@ -35,8 +36,8 @@ Object.defineProperty(String.prototype, 'capitalize', {
 
   orders = filterOrders(orders);
 
-  const restaurantTokens = getRestaurantTokens(orders);
-  const itemTokens = getItemTokens(orders);
+  const restaurantTokens = sort(getRestaurantTokens(orders));
+  const itemTokens = sort(getItemTokens(orders));
   const totalPrice = getTotalPrice(orders);
 
   try {
