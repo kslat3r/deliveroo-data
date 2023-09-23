@@ -1,0 +1,26 @@
+name: publish-new-data
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: BEARER_TOKEN=${{ secrets.BEARER_TOKEN }} node index.js
+      - run: |
+          git config --global user.email "me@edkelly.co.uk"
+          git config --global user.name "Ed Kelly"
+          git checkout -b docs
+          git add --all
+          git commit -m "Update data from automatic job ID ${{ github.job_id }}"
+          git push origin docs --force
