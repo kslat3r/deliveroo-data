@@ -21,6 +21,6 @@ jobs:
           git config --global user.email "me@edkelly.co.uk"
           git config --global user.name "Ed Kelly"
           git checkout -b docs
-          git add --all
+          git add --all 1> /dev/null
           git commit -m "Update data from automatic job ID ${{ github.job_id }}" 1> /dev/null
           git push origin docs --force
