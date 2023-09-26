@@ -20,7 +20,10 @@ jobs:
       - run: |
           git config --global user.email "me@edkelly.co.uk"
           git config --global user.name "Ed Kelly"
-          git checkout -b docs
-          git add --all 1> /dev/null
+          
+          git add --all
           git commit -m "Update data from automatic job ID ${{ github.job_id }}" 1> /dev/null
+
+          git checkout -b docs
+          git merge master
           git push origin docs --force
