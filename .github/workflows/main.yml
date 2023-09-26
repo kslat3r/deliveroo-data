@@ -18,9 +18,6 @@ jobs:
       - run: npm ci
       - run: BEARER_TOKEN=${{ secrets.BEARER_TOKEN }} node index.js
       - run: |
-          git config --global user.email "me@edkelly.co.uk"
-          git config --global user.name "Ed Kelly"
-          
           git add --all
           git commit -m "Update data from automatic job ID ${{ github.job_id }}" 1> /dev/null
           git push origin master --force
