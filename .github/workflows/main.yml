@@ -23,6 +23,7 @@ jobs:
           
           git add --all
           git commit -m "Update data from automatic job ID ${{ github.job_id }}" 1> /dev/null
+          git push origin master --force
 
           git checkout -b docs
           git merge master
