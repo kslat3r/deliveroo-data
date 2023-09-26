@@ -22,7 +22,7 @@ jobs:
           git config user.name "Ed Kelly"
           
           git add --all
-          git commit -m "Update data from automatic job ID ${{ github.job_id }}" 1> /dev/null
+          git commit -m "Update data from automatic job ID ${{ github.job_id }}"
           git push origin master --force
 
           git checkout -b docs
