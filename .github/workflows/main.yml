@@ -20,11 +20,17 @@ jobs:
       - run: |
           git config user.email "me@edkelly.co.uk"
           git config user.name "Ed Kelly"
-          
-          git add --all
-          git commit -m "Update data from automatic job ID ${{ github.job_id }}"
-          git push origin master --force
 
-          git checkout -b docs
-          git merge master
-          git push origin docs --force
+          if [[ -z $(git status -s) ]] then
+            echo "tree is clean"
+          else
+            echo "tree is dirty, please commit changes before running this"
+
+            git add --all
+            git commit -m "Update data from automatic job ID ${{ github.job_id }}"
+            git push origin master --force
+
+            git checkout -b docs
+            git merge master
+            git push origin docs --force
+          fi
