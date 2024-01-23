@@ -20,7 +20,7 @@ Object.defineProperty(String.prototype, 'capitalize', {
   let orders = [];
   
   let offset = 0;
-  let total = 734;
+  let total = 800;
   
   while (total > 0) {
     try {
@@ -34,6 +34,7 @@ Object.defineProperty(String.prototype, 'capitalize', {
     total -= (limit - 1);
   }
 
+  console.log(orders[orders.length - 1].items);
   orders = filterOrders(orders);
 
   const restaurantTokens = sort(getRestaurantTokens(orders));
@@ -41,6 +42,7 @@ Object.defineProperty(String.prototype, 'capitalize', {
   const totalPrice = getTotalPrice(orders);
 
   try {
+    await writeFile(orders, 'docs/orders.js', 'ORDERS');
     await writeFile(restaurantTokens, 'docs/restaurant-tokens.js', 'RESTAURANT_TOKENS');
     await writeFile(itemTokens, 'docs/item-tokens.js', 'ITEM_TOKENS');
     await writeFile(totalPrice, 'docs/total-price.js', 'TOTAL_PRICE');

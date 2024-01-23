@@ -1,3 +1,10 @@
+Object.defineProperty(String.prototype, 'capitalize', {
+  value: function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  },
+  enumerable: false
+});
+
 (function() {
   const opts = {
     autoResize: true
@@ -40,7 +47,22 @@
         <span style="width: ${width}%;"></span>
         <h5>${key} (${count}) [${width.toFixed(2)}%]</h5>
       </div>
-    `);
+    `);    
+  }
+
+  for (const key of Object.keys(window.ORDERS).slice(0, 20)) {
+    const order = window.ORDERS[key];
     
+    $('#recent-orders').append(`
+      <li class="order">
+        <h4>${order.restaurant.name}</h4>
+        <h5>${new Date(order.submitted_at).toLocaleString()}</h5>
+        <h5>£${order.total}</h5>
+
+        <ul>
+          ${order.items.map(item => `<li>${item.name}</li>`).join('')}
+        </ul>
+      </li>
+    `);    
   }
 })();
