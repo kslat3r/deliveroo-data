@@ -1,1 +1,1 @@
-window.TOTAL_PRICE = "19440.54"
+window.TOTAL_PRICE = "19430.71"
